@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+
+
+demo/
+audios/
+outputs/
+*.mp3
+*.wav
+embeddings.joblib
+
+.env
