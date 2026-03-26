@@ -1,8 +1,6 @@
 __pycache__/
 *.pyc
 
-
-demo/
 audios/
 merged_outputs/
 outputs/
