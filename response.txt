@@ -1,5 +1,0 @@
-
-Video Title: TypeScript in 100 Seconds
-Video Number: 7
-Timestamp: 72.24s – 88.02s
-Explanation: The primary goal of TypeScript is to enable static typing.
