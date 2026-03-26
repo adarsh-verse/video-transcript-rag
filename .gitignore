@@ -4,6 +4,7 @@ __pycache__/
 
 demo/
 audios/
+merged_outputs/
 outputs/
 *.mp3
 *.wav

@@ -4,7 +4,7 @@ import json
 import os
 import joblib
 
-OUTPUT_DIR = "outputs"
+OUTPUT_DIR = "merged_outputs"
 EMBEDDING_FILE = "embeddings.joblib"
 
 
