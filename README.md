@@ -28,9 +28,6 @@ User Query → Embedding → Vector Search → Top-K Chunks → LLM → Answer w
 
 ---
 
-## 📸 Demo
-(Add screenshots OR video)
-
 ---
 
 ## ⚡ How to Run
