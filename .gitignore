@@ -10,5 +10,5 @@ outputs/
 *.wav
 embeddings.joblib
 data/embeddings/
-
+demo/
 .env
