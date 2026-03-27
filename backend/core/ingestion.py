@@ -22,9 +22,12 @@ def transcribe_audio(audio_path:str, video_number:int):
     for segment in result["segments"]:
         text = segment["text"].strip()
         if text:
+            file_name = os.path.basename(audio_path)
+            file_name = os.path.splitext(file_name)[0]
+            clean_title = file_name.split("_", 1)[-1]
             chunk = {
                 "video_number": video_number,
-                "title":audio_path.split("/")[-1].split(".")[0],
+                "title": clean_title,
                 "start": round(segment["start"],2),
                 "end": round(segment["end"],2),
                 "text": text  
