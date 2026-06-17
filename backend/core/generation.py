@@ -2,9 +2,7 @@ import requests
 
 OLLAMA_GEN_URL = "http://localhost:11434/api/generate"
 
-def generate_answer(query, retrieved_chunks):
-
-    context = "\n\n".join(retrieved_chunks["text"].tolist())
+def generate_answer(query,context):
 
     prompt = f"""
 You are a video course assistant.

@@ -8,6 +8,7 @@ function App() {
 
   const [loading, setLoading] = useState(false)
   const [processed, setProcessed] = useState(false)
+  const [successVisible, setSuccessVisible] = useState(true);
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState(null);
@@ -26,6 +27,10 @@ function App() {
       await ProcessInput(file, url);
       console.log("after process")
       setProcessed(true)
+      setSuccessVisible(() => {
+        setTimeout(3000);
+        return false;
+      })
     }
     catch (error) {
       alert("Processing failed")
@@ -68,7 +73,9 @@ function App() {
       <div className="backdrop-blur-md bg-white/70 p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-200">
 
         {/* FILE INPUT */}
-        <input
+        {!processed && (
+          <div>
+          <input
           type="file"
           onChange={(e) => setFile(e.target.files[0])}
           className="mb-4 w-full text-sm text-gray-700
@@ -89,22 +96,26 @@ function App() {
           onChange={(e) => setUrl(e.target.value)}
           className="w-full p-3 border rounded-xl mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        </div>
+        )}
 
 
-        <button
-          onClick={handleProcess}
-          className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition font-semibold"
-        >
-          Process
-        </button>
+        {(!loading && !processed) &&
+          <button
+            onClick={handleProcess}
+            className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition font-semibold"
+          >
+            Process
+          </button>
+        }
 
-        {loading && (
+        {(loading && !processed) && (
           <p className="text-center mt-4 text-blue-500 font-medium animate-pulse">
             Processing...
           </p>
         )}
 
-        {processed && (
+        {processed && successVisible && (
           <p className="text-green-600 text-center mt-4 font-medium">
             ✅ Processed Successfully
           </p>
